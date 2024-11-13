@@ -1,0 +1,6 @@
+*.csv
+*.pkl
+
+configs_debug
+Data
+Results

@@ -1,4 +1,4 @@
-import os, rich, collections, pickle
+import os, rich, collections
 import numpy as np
 import pandas as pd
 
@@ -199,7 +199,6 @@ class Trainer(Task):
                 et_x, et_eqp, et_y, et_idx = et_batch
                 et_x, et_eqp, et_y = et_x.to(self.device), et_eqp.to(self.device), et_y.to(self.device)
 
-                """VM 결측 -> pred 값으로 대체"""
                 et_pred = self.model(et_x, et_eqp)
 
                 result['et_wafer_id'].append(et_idx)

@@ -134,7 +134,7 @@ class ConfigBase(object):
         parser.add_argument('--optimizer', type=str, default='adam', choices=('sgd', 'adam', 'rms_prop'))
         
         parser.add_argument("--loss", type=str, default="mse")
-        parser.add_argument("--et-weight", type=str, default="same", choices=("same", "range", "var"))
+        parser.add_argument("--et-weight", type=str, default="var", choices=("same", "range", "var"))
         
         parser.add_argument('--patience', type=int, default=500)
         parser.add_argument('--gpus', type=int, nargs='+', default=0, help='')

@@ -57,8 +57,6 @@ class ConfigBase(object):
     def checkpoint_dir(self) -> str:
         ckpt = os.path.join(
             self.checkpoint_root,
-            f'valid_{self.valid_ratio}',
-            self.et_weight,
             self.backbone,
             f'seed_{self.seed}',
             self.hash
@@ -76,15 +74,14 @@ class ConfigBase(object):
     def data_parser() -> argparse.ArgumentParser:
         """Returns an `argparse.ArgumentParser` instance containing data-related arguments."""
         parser = argparse.ArgumentParser("Data", add_help=False)
-        parser.add_argument('--seed', type=int, default=42)
+        parser.add_argument('--seed', type=int, default=0)
         parser.add_argument('--data-dir', type=str, default='./Data/')
         parser.add_argument('--test-ratio', type=float, default=.2)
-        parser.add_argument('--valid-ratio', type=float, default=.1)
+        parser.add_argument('--valid-ratio', type=float, default=.2)
 
         parser.add_argument('--task', type=str, default='ET', choices=('VM', 'ET'))
         parser.add_argument('--NP', type=str, default='NP', choices=('NP', 'N', 'P'))
         parser.add_argument('--encoding-type', type=str, default='Count', choices=('Target', 'Count', 'CatBoost', 'OneHot'))
-        parser.add_argument('--pad-type', type=str, default="zero", choices=('zero', 'replicate', 'none'))
         parser.add_argument('--eqp', type=str, default="eqp", choices=("no_eqp", "eqp"))
         parser.add_argument('--agg', type=str, default="mean", choices=("mean", "attn", "channel"))
         return parser
@@ -115,7 +112,7 @@ class ConfigBase(object):
         parser.add_argument('--num-layers', type=int, default=2)
 
         # 1D CNN backbone hyperparameters
-        parser.add_argument("--kernel-size", type=int, default=16)
+        parser.add_argument("--kernel-size", type=int, default=2)
         parser.add_argument("--stride", type=int, default=1)
         parser.add_argument("--dilation", type=int, default=1)
         return parser

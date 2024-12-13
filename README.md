@@ -1,1 +1,1 @@
-# Range-Aware Multi-Output Regression Using Input Projection CNN for Electrical Test Prediction
+# RACI: Range-Aware Multi-Output Regression with Channel-Independent Feature Extraction for Electrical Test Prediction

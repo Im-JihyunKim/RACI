@@ -23,7 +23,7 @@ python main.py \
     --backbone CNN \
     --kernel-size 2 \
     --seed 0 \
-    --agg avg \
+    --agg mean \
     --encoding-type Count \
     --batch-size 32 \
     --epochs 1000 \

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # RACI
 
 This is the official code of paper **Range-Aware Multi-Output Regression Using Input Projection CNN for Electrical Test Prediction** based on PyTorch
@@ -35,3 +36,6 @@ We highly recommend that [`Weights & Biases`](https://kr.wandb.ai/) to monitor m
 ## Contact
 If you have any problem about our code, feel free to contact 
 * jihyun_k@korea.ac.kr
+=======
+# RACI: Range-Aware Multi-Output Regression with Channel-Independent Feature Extraction for Electrical Test Prediction
+>>>>>>> 0cab77f066c2c260c5901659a609ec3b94aa41eb

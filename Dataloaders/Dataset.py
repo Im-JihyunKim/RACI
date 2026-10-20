@@ -75,7 +75,6 @@ class SSDataset(Dataset):
         train_idx = np.arange(df.shape[0])[:-int(df.shape[0]*(self.configs.test_ratio))]  # 333
         # train_idx, valid_idx = _train_idx[:-int(len(_train_idx)*(self.configs.test_ratio))], _train_idx[-int(len(_train_idx)*(self.configs.test_ratio)):]
         test_idx  = np.arange(df.shape[0])[-int(df.shape[0]*(self.configs.test_ratio)):]  # 83
-        valid_idx = test_idx
 
         """Make ET data"""
         # define x cols to predict ET

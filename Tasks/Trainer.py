@@ -119,7 +119,7 @@ class Trainer(Task):
                 et_pred = self.model(et_x, et_eqp)
 
                 # 2. compute loss per ET
-                et_loss_ = torch.stack([mse_loss(et_y[:,i], et_pred[:,i])/(self.et_var[i]+1e-6) for i in range(et_y.size(1))])
+                et_loss_ = torch.stack([mse_loss(et_y[:,i], et_pred[:,i])/(self.et_var[i]+1e-4) for i in range(et_y.size(1))])
                 et_loss_ = et_loss_[~torch.isnan(et_loss_)]
                 et_loss = mse_loss(et_y, et_pred) if self.configs.et_weight == "same" else torch.mean(et_loss_)
 
@@ -167,7 +167,7 @@ class Trainer(Task):
 
                 """Predict ET"""
                 et_pred = self.model(et_x, et_eqp)
-                et_loss_ = torch.stack([mse_loss(et_y[:,i], et_pred[:,i])/(et_var[i]+1e-6) for i in range(et_y.size(1))])
+                et_loss_ = torch.stack([mse_loss(et_y[:,i], et_pred[:,i])/(et_var[i]+1e-4) for i in range(et_y.size(1))])
                 et_loss = mse_loss(et_y, et_pred) if self.configs.et_weight == "same" else et_loss_[~torch.isnan(et_loss_)].mean()
 
                 result['loss'][i] = et_loss.item()
